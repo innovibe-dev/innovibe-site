@@ -74,7 +74,7 @@ const Services = () => {
                   24/7 Support
                 </h3>
                 <p className="text-gray-600 text-center leading-relaxed">
-                  We are here to help you around the clock with any EV-related
+                  We are here to help you resolve the clock with any EV-related
                   issues.
                 </p>
               </div>

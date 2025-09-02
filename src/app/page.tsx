@@ -6,8 +6,9 @@ import Contact from "@/app/contact/page";
 import Navigation from "@/components/Navigation";
 import PartnerSection from "@/components/partnersection";
 import Services from "@/components/services";
-import Aboutpage from "@/components/about";
+import About from "@/components/about";
 import Blogpage from "@/components/blog";
+import ElectricVehicleServices from "@/components/otherservicecard";
 
 const page = () => {
   return (
@@ -15,8 +16,9 @@ const page = () => {
       <Navigation />
       <Hero />
       <Services />
+      <ElectricVehicleServices />
       <Newsletter />
-      <Aboutpage />
+      <About />
       <Blogpage  />
       <PartnerSection />
       <Contact />

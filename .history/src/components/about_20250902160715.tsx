@@ -159,8 +159,8 @@ const Aboutpage = () => {
             {/* Left Side - Content */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Why Choose EVenues Mobility?
-              </h2>
+                Why Choose Innovibe Mobility?
+              </h>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Benefit from our extensive expertise, comprehensive services,
                 and commitment to sustainability in the EV sector.
