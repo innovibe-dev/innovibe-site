@@ -16,8 +16,8 @@ const Navigation = () => {
         if (document.querySelector(".navbar-nav a") && navRef.current) {
           new Gumshoe(".navbar-nav a", { offset: 80 });
         }
-      } catch (e) {
-        // fail silently if Gumshoe fails
+      } catch (error) {
+        console.error(error);
       }
     }
   }, []);

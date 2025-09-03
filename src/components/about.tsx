@@ -37,7 +37,7 @@ const Aboutpage = () => {
                   <span className="text-blue-600 font-semibold">
                     Visakhapatnam, Andhra Pradesh
                   </span>
-                  , is a pioneering force in India's electric vehicle industry.
+                  , is a pioneering force in India&apos;s electric vehicle industry.
                 </p>
                 <p>
                   Founded by{" "}
@@ -117,7 +117,7 @@ const Aboutpage = () => {
                 <h3 className="text-xl font-bold text-gray-900">Vision</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                To be India's leading provider of electric vehicle technology.
+                To be India&apos;s leading provider of electric vehicle technology.
               </p>
               <p className="text-gray-600 leading-relaxed mt-4">
                 We strive to foster a greener, sustainable future through

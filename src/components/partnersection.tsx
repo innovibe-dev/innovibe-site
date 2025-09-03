@@ -5,12 +5,12 @@ const PartnerSection = () => {
     <section className="bg-blue-600 text-white rounded-2xl p-10 text-center max-w-5xl mx-auto my-16">
       {/* Heading */}
       <h2 className="text-2xl md:text-4xl font-bold mb-4">
-        Partner with India's EV Revolution
+        Partner with India&apos;s EV Revolution
       </h2>
 
       {/* Description */}
       <p className="text-base md:text-lg max-w-2xl mx-auto mb-8 text-blue-100">
-        Join EVenues as a franchise partner or investor. Be part of India's
+        Join EVenues as a franchise partner or investor. Be part of India&apos;s
         largest electric vehicle service ecosystem with proven business
         models and comprehensive support.
       </p>

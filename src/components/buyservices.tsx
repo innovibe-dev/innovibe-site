@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Zap, MapPin, Users, Settings, Shield, CheckCircle, Phone } from 'lucide-react';
+import { CheckCircle, Settings, Users, Zap } from 'lucide-react';
 
 const BuyEVServices = () => {
   return (
@@ -13,7 +13,6 @@ const BuyEVServices = () => {
             All-around EV maintenance, repair, and home service for two-wheelers and bikes.
           </p>
         </div>
-
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
@@ -24,7 +23,7 @@ const BuyEVServices = () => {
                 <div className="text-white text-center">
                   <Zap className="w-16 h-16 mx-auto mb-2" />
                   <span className="inline-block bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
-                    ⭐ Popular
+                    &#11088; Popular
                   </span>
                 </div>
               </div>
@@ -32,7 +31,7 @@ const BuyEVServices = () => {
             
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                2 Wheelers (Bicycle, Scooter & Bikes)
+                2 Wheelers (Bicycle, Scooter &amp; Bikes)
               </h3>
               <p className="text-gray-600 mb-4">
                 Choose your ideal 2-wheeler from our collection.
@@ -66,7 +65,7 @@ const BuyEVServices = () => {
                 <div className="text-white text-center">
                   <Settings className="w-16 h-16 mx-auto mb-2" />
                   <span className="inline-block bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
-                    ⭐ Popular
+                    &#11088; Popular
                   </span>
                 </div>
               </div>
@@ -116,7 +115,7 @@ const BuyEVServices = () => {
             
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Home Service & Maintenance
+                Home Service &amp; Maintenance
               </h3>
               <p className="text-gray-600 mb-4">
                 Professional EV maintenance at your doorstep.
@@ -143,8 +142,6 @@ const BuyEVServices = () => {
             </div>
           </div>
         </div>
-
-       
       </div>
     </div>
   );

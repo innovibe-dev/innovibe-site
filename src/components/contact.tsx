@@ -15,9 +15,9 @@ const ContactPage = () => {
               </h2>
           <br />
           <p className="text-lg text-gray-700 max-w-2xl">
-            Get in touch with India's leading electric vehicle service provider.
+            Get in touch with India&apos;s leading electric vehicle service provider.
             <br />
-            We're here to help you with all your EV needs.
+            We&apos;re here to help you with all your EV needs.
           </p>
         </div>
         <div className="grid lg:grid-cols-3 gap-6 items-center">
@@ -28,7 +28,7 @@ const ContactPage = () => {
                 Send us a Message
               </h3>
               <p className="text-base text-muted mt-4">
-                Fill out the form below and we'll get back to you within 24
+                Fill out the form below and we&apos;ll get back to you within 24
                 hours.
               </p>
             </div>

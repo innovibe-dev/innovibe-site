@@ -11,7 +11,7 @@ const Services = () => {
           <br></br>
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl/tight font-semibold text-black mt-4">
-              EVenues: Powering India's Electric Future{" "}
+              EVenues: Powering India&apos;s Electric Future{" "}
             </h2>
           </div>
           <br></br>
@@ -19,7 +19,7 @@ const Services = () => {
           <p className="text-base font-medium mt-4 text-muted text-center">
             Headquartered in Visakhapatnam, Andhra Pradesh, EVenues Mobility
             <br />
-            Everywhere is India's fastest-growing electric vehicle service
+            Everywhere is India&apos;s fastest-growing electric vehicle service
             network.
           </p>
           <br />

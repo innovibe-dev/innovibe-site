@@ -23,7 +23,7 @@ const Blogpage = () => {
               </h2>
               <br />
              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Stay informed with the latest trends, tips, and insights from India's electric vehicle industry.
+            Stay informed with the latest trends, tips, and insights from India&apos;s electric vehicle industry.
             Featured Articles
           </p>
             </div>

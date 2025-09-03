@@ -7,7 +7,9 @@ import {
   useState,
   useMemo,
   useEffect,
+  useCallback,
 } from 'react'
+
 const LayoutContext = createContext<LayoutType | undefined>(undefined)
 
 function useLayoutContext() {
@@ -17,44 +19,50 @@ function useLayoutContext() {
   }
   return context
 }
+
 function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
-  const INIT_STATE: LayoutState = {
+  const INIT_STATE = useMemo<LayoutState>(() => ({
     theme: 'light',
-  }
+  }), []);
   const [settings, setSettings] = useState<LayoutState>(INIT_STATE)
   const themeMode = settings.theme
+
   // update settings
-  const updateSettings = (_newSettings: Partial<LayoutState>) => {
-    setSettings({ ...settings, ..._newSettings })
-  }
+  const updateSettings = useCallback(
+    (_newSettings: Partial<LayoutState>) => {
+      setSettings((prev) => ({ ...prev, ..._newSettings }))
+    },
+    [],
+  )
 
   useEffect(() => {
     const html = document.getElementsByTagName('html')[0]
-    if (themeMode == 'dark') html.classList.add('dark')
+    if (themeMode === 'dark') html.classList.add('dark')
     else html.classList.remove('dark')
   }, [themeMode])
 
-  const updateTheme = (newTheme: LayoutTheme) => {
-    updateSettings({ ...settings, theme: newTheme })
-  }
-
-  const resetSettings = () => {
-    setSettings(INIT_STATE)
-  }
-
-  return (
-    <LayoutContext.Provider
-      value={useMemo(
-        () => ({
-          settings,
-          themeMode,
-          updateTheme,
-          resetSettings,
-        }),
-        [settings, themeMode],
-      )}>
-      {children}
-    </LayoutContext.Provider>
+  const updateTheme = useCallback(
+    (newTheme: LayoutTheme) => {
+      updateSettings({ theme: newTheme })
+    },
+    [updateSettings],
   )
+
+  const resetSettings = useCallback(() => {
+    setSettings(INIT_STATE)
+  }, [INIT_STATE])
+
+  const value = useMemo(
+    () => ({
+      settings,
+      themeMode,
+      updateTheme,
+      resetSettings,
+    }),
+    [settings, themeMode, updateTheme, resetSettings],
+  )
+
+  return <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>
 }
+
 export { useLayoutContext, LayoutProvider }

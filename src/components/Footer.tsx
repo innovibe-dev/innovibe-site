@@ -22,7 +22,7 @@ function Footer() {
                   />
                 </div>
                 <p className="text-gray-300 max-w-xs mt-6">
-                  India's leading electric vehicle service provider with
+                  India&apos;s leading electric vehicle service provider with
                   comprehensive EV solutions across the nation.
                 </p>
 

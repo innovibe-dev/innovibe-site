@@ -1,6 +1,5 @@
 import React from "react";
 import IconifyIcon from "@/components/wrappers/IconifyIcon";
-import Link from "next/link";
 
 const HowItWorks = () => {
   return (
