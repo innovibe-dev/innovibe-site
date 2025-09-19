@@ -1,21 +1,18 @@
-import Image from 'next/image'
-import logo from '@/assets/images/logo.png'
-import '@/assets/scss/style.scss'
-import '@/styles/globals.css'
-import AppProviders from '../components/wrappers/AppProviders'
-import { Metadata } from 'next'
-
+import Image from "next/image";
+import "@/styles/global.css";
+import logo from "@/assets/images/logo.png";
+import "@/assets/scss/style.scss";
+import AppProviders from "../components/wrappers/AppProviders";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default:
-      ' Evenues - | Tailwind App Landing Page Template',
-    template:
-      '%s |  Evenues-NextJs | Tailwind App Landing Page Template',
+    default: " Evenues - | Tailwind App Landing Page Template",
+    template: "%s |  Evenues-NextJs | Tailwind App Landing Page Template",
   },
   description:
-    'A Fully Responsive Tailwind CSS Template, personal, agency, application, business, clean, creative, it solutions, startup, career, blog, modern, creative, multipurpose, portfolio, saas, software, tailwind css, etc.',
-}
+    "A Fully Responsive Tailwind CSS Template, personal, agency, application, business, clean, creative, it solutions, startup, career, blog, modern, creative, multipurpose, portfolio, saas, software, tailwind css, etc.",
+};
 
 const splashScreenStyles = `
 #splash-screen {
@@ -46,12 +43,12 @@ const splashScreenStyles = `
     visibility: hidden;
   }
 }
-`
+`;
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -66,7 +63,7 @@ export default function RootLayout({
             width={112}
             height={24}
             src={logo}
-            style={{ height: '6%', width: 'auto' }}
+            style={{ height: "6%", width: "auto" }}
             priority
           />
         </div>
@@ -75,5 +72,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }
