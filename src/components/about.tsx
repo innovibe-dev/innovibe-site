@@ -71,23 +71,15 @@ const Aboutpage = () => {
             </div>
 
             {/* Right Side - Image */}
-          <div
-  className="
-    order-1 lg:order-2
-    flex justify-center lg:justify-end
-    items-center lg:items-start
-    mt-0 sm:mt-[20px] md:mt-[40px] lg:mt-[-180px]
-  "
->
-  <Image
-    src={iphone}
-    className="h-[320px] sm:h-[420px] md:h-[500px] lg:h-[600px] rounded-xl"
-    alt="feature-image"
-    width={580}
-    height={580}
-  />
-</div>
-
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-start mt-[-200px]">
+              <Image
+                src={iphone}
+                className="h-[600px] rounded-xl"
+                alt="feature-image"
+                width={580}
+                height={580}
+              />
+            </div>
           </div>
         </div>
       </section>
