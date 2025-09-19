@@ -121,23 +121,25 @@ export default function BlogDetailPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation /><br /><br /><br />
+      <Navigation />
+      <br />
+      <br />
+      <br />
 
-        <div className="flex-grow bg-gray-50 py-12" >
-            {/* Back link */}
-          <Link
-            href="/blog"
-            className="text-blue-600 hover:underline text-sm mb-6 inline-block"
-          >
-            ← Back to Blog
-          </Link>
-        </div>
-      <main className="flex-grow bg-gray-50 py-12">
+      <main className="flex-grow bg-gray-50 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+          <div className="flex-grow bg-gray-50 pt-6 pb-3">
+            {/* Back link */}
+            <Link
+              href="/blog"
+              className="text-blue-600 hover:underline text-sm inline-block"
+            >
+              ← Back to Blog
+            </Link>
+          </div>
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Blog Image (smaller + rounded corners) */}
-            <div className="relative h-45 w-full md:h-52 mt-8 rounded-lg overflow-hidden">
+            <div className="relative w-full md:h-52 rounded-lg overflow-hidden image-height">
               <Image
                 src={blog.image || "/images/blog-placeholder.jpg"}
                 alt={blog.title}

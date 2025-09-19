@@ -44,7 +44,7 @@ const HowItWorks = () => {
               </div>
               <h3 className="text-xl font-semibold mt-4">{step.title}</h3>
               <p className="text-gray-600 mt-2">{step.desc}</p>
-              <div className="absolute text-blue-600" style={{ bottom: '0.8rem !important', right: '0.6rem !important',}}>
+              <div className="absolute text-blue-600" style={{ bottom: '0.8rem', right: '0.6rem', }}>
                 <IconifyIcon icon={step.icon} className="w-6 h-6" />
               </div>
             </div>
