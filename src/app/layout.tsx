@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import '@/global.css'
 import logo from '@/assets/images/logo.png'
 import '@/assets/scss/style.scss'
 import AppProviders from '../components/wrappers/AppProviders'
