@@ -1,177 +1,264 @@
-import Image from "next/image";
-import React from "react";
-import client03 from "@/assets/images/user/client-03.jpg";
-import client05 from "@/assets/images/user/client-05.jpg";
-import blog5 from "@/assets/images/blog/05.jpg";
-import blog7 from "@/assets/images/blog/07.jpg";
-import user3 from "@/assets/images/user/client-03.jpg";
-import blog4 from "@/assets/images/blog/04.jpg";
-import Link from "next/link";
-import Navigation from "@/components/Navigation";
+"use client";
 
-const Blogpage = () => {
-  return (
-    <>
-      <Navigation />
-      <section id="blog" className="py-20">
-        <div className="container">
-          <div className="">
-            <div className="text-center max-w-xl mx-auto">
-              
-              <h2 className="text-3xl md:text-4xl/tight font-semibold mt-4">
-                EV Insights & Updates
-              </h2>
-              <br />
-             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Stay informed with the latest trends, tips, and insights from India&apos;s electric vehicle industry.
-            Featured Articles
-          </p>
+import React, { useState, useEffect } from "react";
+import { blogApi, Blog } from "@/services/blog.service";
+import { Search, Calendar, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import Navigation from "./Navigation";
+
+// Categories and their corresponding colors
+export const blogCategories = [
+  "All",
+  "Event Planning",
+  "Weddings",
+  "Corporate Events",
+  "Virtual Events",
+  "Sustainability",
+  "Technology",
+  "EV Parts",
+];
+
+export const categoryColors = {
+  "Event Planning": "#FF6B6B",
+  Weddings: "#FF9E7D",
+  "Corporate Events": "#FFD166",
+  "Virtual Events": "#06D6A0",
+  Sustainability: "#118AB2",
+  Technology: "#4F46E5",
+  "EV Parts": "#7E22CE",
+};
+
+const BlogPage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterBy, setFilterBy] = useState("All");
+  const [sortBy, setSortBy] = useState("Newest");
+  const [articles, setArticles] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // 🔥 Fetch from API
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const blogs = await blogApi.getAllBlogs();
+        setArticles(blogs);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  // Sorting logic
+  const sortedArticles = [...articles].sort((a, b) => {
+    if (sortBy === "Newest") {
+      return (
+        new Date(b.created_at || "").getTime() -
+        new Date(a.created_at || "").getTime()
+      );
+    }
+    if (sortBy === "Oldest") {
+      return (
+        new Date(a.created_at || "").getTime() -
+        new Date(b.created_at || "").getTime()
+      );
+    }
+    return 0; // placeholder for "Most Popular"
+  });
+
+  // Filtering
+  const filteredArticles = sortedArticles.filter((article) => {
+    const matchesSearch =
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const categoryName = article.category?.name || "Uncategorized";
+    const matchesFilter = filterBy === "All" || categoryName === filterBy;
+
+    return matchesSearch && matchesFilter;
+  });
+
+  // Format date consistently
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return "No date";
+    // Handle Unix timestamp (if it's a number string)
+    const timestamp = parseInt(dateString);
+    const date = !isNaN(timestamp) && timestamp > 1000000000 
+      ? new Date(timestamp * 1000) 
+      : new Date(dateString);
+    if (isNaN(date.getTime())) return dateString;
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  };
+
+  // Create slug from title
+  const createSlug = (title: string) => {
+    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  };
+
+  // ✅ Article card
+  const ArticleCard: React.FC<{ article: Blog }> = ({ article }) => (
+    <Link href={`/blog/${createSlug(article.title)}`} className="block">
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full">
+        {/* Image Section */}
+        <div
+          className="h-48 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${article.image || "/placeholder.png"})`,
+          }}
+        />
+
+        {/* Content Section */}
+        <div className="p-6">
+          <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+            <div className="flex items-center gap-1">
+              <Calendar size={14} />
+              <span>{formatDate(article.created_at)}</span>
             </div>
           </div>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mt-14 items-center">
-            <div className="bg-white rounded-xl border">
-              <div className="relative">
-                <Image className="rounded-t-xl" src={blog5} alt="" />
-              </div>
-              <div className="flex py-6 px-6">
-                <div>
-                  <Link
-                    href=""
-                    className="text-xl text-black font-semibold line-clamp-2"
-                  >
-                    Spotlight — Equinox Collection by Shane Griffin
-                  </Link>
-                  <p className="mt-4 mb-6 text-gray-500 leading-6">
-                    As I searched for inspiration to get started, I came across
-                    the captivating creations of Shane Griffin, an artist and
-                    director located in New York City...
-                  </p>
-                  <div className="flex items-center justify-between gap-3 mt-4">
-                    <div className="flex items-center">
-                      <Image
-                        src={client05}
-                        className="h-10 w-10 me-4 rounded-full"
-                        alt=""
-                      />
-                      <Link
-                        href=""
-                        className="text-black text-sm font-semibold pb-1 hover:underline hover:text-primary transition-all duration-300"
-                      >
-                        Credon catla
-                      </Link>
-                    </div>
-                    <p className="flex font-medium text-muted">August 2</p>
-                  </div>
-                </div>
-              </div>
+
+          <div className="mb-2">
+            <span
+              className="text-xs font-medium text-white px-3 py-1 rounded-full"
+              style={{
+                backgroundColor:
+                  categoryColors[
+                    article.category?.name as keyof typeof categoryColors
+                  ] || "#6B7280",
+              }}
+            >
+              {article.category?.name || "Uncategorized"}
+            </span>
+          </div>
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+            {article.title}
+          </h3>
+
+          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+            {article.description}
+          </p>
+
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-500">
+              {article.author?.name || "Unknown Author"}
+            </span>
+            <span className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors">
+              Read More →
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Navigation />
+     
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        {/* Header Section */}
+         <br /><br />
+        <section id="blog" className="py-12">
+          <div className="text-center max-w-xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold mt-4">
+              EV Insights & Updates
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
+              Stay informed with the latest trends, tips, and insights from
+              India&apos;s electric vehicle industry.
+            </p>
+          </div>
+        </section>
+
+        {/* Search & Filters */}
+        <div className="mb-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+          {/* Search */}
+          <div className="relative flex-1 max-w-md">
+            <Search
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={20}
+            />
+            <input
+              type="text"
+              placeholder="Search articles..."
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+
+          {/* Filters */}
+          <div className="flex gap-3">
+            {/* Category Filter */}
+            <div className="relative">
+              <select
+                className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                value={filterBy}
+                onChange={(e) => setFilterBy(e.target.value)}
+              >
+                {blogCategories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={16}
+              />
             </div>
-            <div className="bg-white rounded-xl border">
-              <div className="relative">
-                <Image className="rounded-t-xl" src={blog7} alt="" />
-              </div>
-              <div className="flex py-6 px-6">
-                <div>
-                  <Link
-                    href=""
-                    className="text-xl text-black font-semibold line-clamp-2"
-                  >
-                    Random Explorations with Cinema 4D and Redshift
-                  </Link>
-                  <p className="mt-4 mb-6 text-gray-500 leading-6">
-                    As I searched for inspiration to get started, I came across
-                    the captivating creations of Shane Griffin, an artist and
-                    director located in New York City...
-                  </p>
-                  <div className="flex items-center justify-between gap-3 mt-4">
-                    <div className="flex items-center">
-                      <Image
-                        src={client03}
-                        className="h-10 w-10 me-4 rounded-full"
-                        alt=""
-                      />
-                      <Link
-                        href=""
-                        className="text-black text-sm font-semibold pb-1 hover:underline hover:text-primary transition-all duration-300"
-                      >
-                        Jessica Smith
-                      </Link>
-                    </div>
-                    <p className="flex font-medium text-muted">August 3</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl border">
-              <div className="relative">
-                <Image className="rounded-t-xl" src={blog4} alt="" />
-              </div>
-              <div className="flex py-6 px-6">
-                <div>
-                  <Link
-                    href=""
-                    className="text-xl text-black font-semibold line-clamp-2"
-                  >
-                    Step by step guide for conducting usability
-                  </Link>
-                  <p className="mt-4 mb-6 text-gray-500 leading-6">
-                    As I searched for inspiration to get started, I came across
-                    the captivating creations of Shane Griffin, an artist and
-                    director located in New York City...
-                  </p>
-                  <div className="flex items-center justify-between gap-3 mt-4">
-                    <div className="flex items-center">
-                      <Image
-                        src={user3}
-                        className="h-10 w-10 me-4 rounded-full"
-                        alt=""
-                      />
-                      <Link
-                        href=""
-                        className="text-black text-sm font-semibold pb-1 hover:underline hover:text-primary transition-all duration-300"
-                      >
-                        Petric Camp
-                      </Link>
-                    </div>
-                    <p className="flex font-medium text-muted">August 8</p>
-                  </div>
-                </div>
-              </div>
+
+            {/* Sort Filter */}
+            <div className="relative">
+              <select
+                className="appearance-none bg-white border rounded-lg px-4 py-2 pr-8 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+              </select>
+              <ChevronDown
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={16}
+              />
             </div>
           </div>
         </div>
-      </section>
-       <section className="py-12 px-4">
-      <div className="bg-blue-600 text-white rounded-xl max-w-4xl mx-auto p-10 text-center">
-        <h2 className="text-2xl font-semibold">Stay Updated with EV Insights</h2>
-        <p className="mt-3 text-blue-100">
-          Subscribe to our newsletter and get the latest electric vehicle news,
-          tips, and insights delivered to your inbox.
-        </p>
 
-        {/* Form */}
-        <form
-          // onSubmit={handleSubmit}
-          className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
-          <input
-            type="email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-            className="w-full sm:w-64 px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
-          />
-          <button
-            type="submit"
-            className="bg-white text-blue-600 font-medium px-6 py-2 rounded-md hover:bg-gray-100 transition"
-          >
-            Subscribe
-          </button>
-        </form>
+        {/* All Articles */}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            All Articles  ({filteredArticles.length})
+          </h2>
+
+          {loading ? (
+            <div className="text-center py-8">Loading articles...</div>
+          ) : filteredArticles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredArticles.map((article) => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <div className="text-gray-500 mb-2">No articles found</div>
+              <p className="text-sm text-gray-400">
+                Try adjusting your search or filter criteria
+              </p>
+            </div>
+          )}
+        </section>
       </div>
-    </section>
-    </>
+    </div>
   );
 };
 
-export default Blogpage;
+export default BlogPage;

@@ -35,7 +35,7 @@ const Navigation = () => {
         ref={navRef}
         className={`navbar ${
           scrollY >= 50 && " is-sticky"
-        } fixed top-0 start-0 end-0 z-999 transition-all duration-500 py-2 items-center shadow-md lg:shadow-none [&.is-sticky]:bg-white [&.is-sticky]:backdrop-blur-md group [&.is-sticky]:shadow-md bg-white lg:bg-transparent`}
+        } fixed top-0 start-0 end-0 z-999 transition-all duration-500 py-2 items-center shadow-md lg:shadow-none [&.is-sticky]:bg-white [&.is-sticky]:backdrop-blur-md group [&.is-sticky]:shadow-md bg-white`}
         id="navbar"
       >
         <div className="container">
@@ -93,7 +93,7 @@ const Navigation = () => {
                     className="nav-link inline-flex items-center text-sm lg:text-base font-medium py-0.5 px-2 capitalize"
                     href="/about"
                   >
-                    About
+                    About Us
                   </Link>
                 </li>
 
@@ -110,7 +110,7 @@ const Navigation = () => {
                     className="nav-link inline-flex items-center text-sm lg:text-base font-medium py-0.5 px-2 capitalize"
                     href="/contact"
                   >
-                    Contact
+                    Contact Us
                   </Link>
                   <div></div>
                 </li>

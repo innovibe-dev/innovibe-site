@@ -7,7 +7,7 @@ function Footer() {
     <>
       <footer className="bg-[#17243A]">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 pb-16 pt-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-6 pb-16 pt-16">
             {/* Logo + About */}
             <div className="col-span-full lg:col-span-2">
               <div className="max-w-2xl mx-auto">
