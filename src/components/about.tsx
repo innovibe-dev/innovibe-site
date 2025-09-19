@@ -26,18 +26,16 @@ const Aboutpage = () => {
               <br />
               <br />
               <h1 className="text-4xl font-bold text-gray-900 mb-8 leading-tight">
-                About{" "}
-                <span >
-                  EVenues Mobility
-                </span>
+                About <span>EVenues Mobility</span>
               </h1>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed ">
                 <p className="text-xl text-gray-700 font-medium">
                   EVenues Mobility, headquartered in{" "}
                   <span className="text-blue-600 font-semibold">
                     Visakhapatnam, Andhra Pradesh
                   </span>
-                  , is a pioneering force in India&apos;s electric vehicle industry.
+                  , is a pioneering force in India&apos;s electric vehicle
+                  industry.
                 </p>
                 <p>
                   Founded by{" "}
@@ -73,7 +71,7 @@ const Aboutpage = () => {
             </div>
 
             {/* Right Side - Image */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-start mt-[-200px] about-img">
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-start mt-[-200px]">
               <Image
                 src={iphone}
                 className="h-[600px] rounded-xl"
@@ -117,7 +115,8 @@ const Aboutpage = () => {
                 <h3 className="text-xl font-bold text-gray-900">Vision</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                To be India&apos;s leading provider of electric vehicle technology.
+                To be India&apos;s leading provider of electric vehicle
+                technology.
               </p>
               <p className="text-gray-600 leading-relaxed mt-4">
                 We strive to foster a greener, sustainable future through
