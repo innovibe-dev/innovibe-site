@@ -1,21 +1,22 @@
-import React from 'react';
-import { CheckCircle, Link, Settings, Users, Zap } from 'lucide-react';
+import React from "react";
+import { CheckCircle, Link, Settings, Users, Zap } from "lucide-react";
 
 const BuyEVServices = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <br /><br />
+        <br />
+        <br />
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">EV Services</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            All-around EV maintenance, repair, and home service for two-wheelers and bikes.
+            All-around EV maintenance, repair, and home service for two-wheelers
+            and bikes.
           </p>
         </div>
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
           {/* 2 Wheelers Service */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
             <div className="relative">
@@ -28,7 +29,7 @@ const BuyEVServices = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 2 Wheelers (Bicycle, Scooter &amp; Bikes)
@@ -36,7 +37,7 @@ const BuyEVServices = () => {
               <p className="text-gray-600 mb-4">
                 Choose your ideal 2-wheeler from our collection.
               </p>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex items-center text-gray-700">
                   <CheckCircle className="w-4 h-4 text-teal-500 mr-3" />
@@ -51,10 +52,12 @@ const BuyEVServices = () => {
                   <span className="text-sm">Expert support provided</span>
                 </div>
               </div>
-              
-              <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-               <Link href="/">Book Now</Link>
-              </button>
+
+              <a href="/bookservice" className="block w-full">
+                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+                  Book Now
+                </button>
+              </a>
             </div>
           </div>
 
@@ -70,7 +73,7 @@ const BuyEVServices = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Roadside Assistance (RSA)
@@ -78,7 +81,7 @@ const BuyEVServices = () => {
               <p className="text-gray-600 mb-4">
                 Get help anytime, anywhere on the road.
               </p>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex items-center text-gray-700">
                   <CheckCircle className="w-4 h-4 text-teal-500 mr-3" />
@@ -90,13 +93,18 @@ const BuyEVServices = () => {
                 </div>
                 <div className="flex items-center text-gray-700">
                   <CheckCircle className="w-4 h-4 text-teal-500 mr-3" />
-                  <span className="text-sm">Professional technicians ready</span>
+                  <span className="text-sm">
+                    Professional technicians ready
+                  </span>
                 </div>
               </div>
-              
-              <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-                Book Now
+
+              <a href="/bookservice" className="block w-full">
+
+              <button  className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+                 Book Now
               </button>
+              </a>
             </div>
           </div>
 
@@ -112,7 +120,7 @@ const BuyEVServices = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Home Service &amp; Maintenance
@@ -120,7 +128,7 @@ const BuyEVServices = () => {
               <p className="text-gray-600 mb-4">
                 Professional EV maintenance at your doorstep.
               </p>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex items-center text-gray-700">
                   <CheckCircle className="w-4 h-4 text-teal-500 mr-3" />
@@ -135,10 +143,12 @@ const BuyEVServices = () => {
                   <span className="text-sm">Genuine parts guaranteed</span>
                 </div>
               </div>
-              
-              <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-                Book Now
-              </button>
+
+              <a href="/bookservice" className="block w-full">
+                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+                  Book Now
+                </button>
+              </a>
             </div>
           </div>
         </div>
