@@ -140,8 +140,7 @@ function Footer() {
               <div className="text-sm text-white">
                 <br />
 
-                <p>D.No: 47-10-25, Dwaraka Nagar,</p>
-                <p>Visakhapatnam, Andhra Pradesh - 530016</p>
+                <p>Visakhapatnam, Andhra Pradesh, India</p>
                 {/* Contact */}
                 <div className="mt-6 grid space-y-3">
                   <a
@@ -163,11 +162,11 @@ function Footer() {
                       <rect width={20} height={16} x={2} y={4} rx={2} />
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
-                    contact@evenuesmobility.com
+                    customercare@innovibemobility.com 
                   </a>
                   <a
                     className="inline-flex items-center gap-x-4 text-gray-300 hover:text-gray-400 transition-all duration-300"
-                    href="tel:+919876543210"
+                    href="tel:+91 9429695786"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +182,7 @@ function Footer() {
                     >
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
-                    +91 9876543210
+                    +91 9429695786
                   </a>
                 </div>
               </div>

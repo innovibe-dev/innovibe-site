@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Settings, Users, Zap } from 'lucide-react';
+import { CheckCircle, Link, Settings, Users, Zap } from 'lucide-react';
 
 const BuyEVServices = () => {
   return (
@@ -53,7 +53,7 @@ const BuyEVServices = () => {
               </div>
               
               <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-                Book Now
+               <Link href="/">Book Now</Link>
               </button>
             </div>
           </div>

@@ -22,7 +22,7 @@ const PartnerSection = () => {
           className="bg-blue-500 hover:bg-blue-700 transition px-6 py-3 rounded-lg text-white font-medium flex items-center gap-2 border border-blue-400"
         >
           <span className="h-2 w-2 bg-white rounded-full"></span>
-          contact@evenuesmobility.com
+          customercare@innovibemobility.com
         </a>
         <a
           href="mailto:ceo@evenuesmobility.com"
