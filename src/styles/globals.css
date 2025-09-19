@@ -1,0 +1,11 @@
+@media (min-width: 360px) and (max-width: 1023px) {
+    .about-img{
+        margin-top: 30px !important;
+    }
+    .about-img img{
+        object-fit: contain !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin-left: 50px;
+    }
+}

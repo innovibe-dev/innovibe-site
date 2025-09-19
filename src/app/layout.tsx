@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import logo from '@/assets/images/logo.png'
 import '@/assets/scss/style.scss'
+import '@/styles/globals.css'
 import AppProviders from '../components/wrappers/AppProviders'
 import { Metadata } from 'next'
 
