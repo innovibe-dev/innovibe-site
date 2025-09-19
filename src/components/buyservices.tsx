@@ -100,10 +100,9 @@ const BuyEVServices = () => {
               </div>
 
               <a href="/bookservice" className="block w-full">
-
-              <button  className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-                 Book Now
-              </button>
+                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+                  Book Now
+                </button>
               </a>
             </div>
           </div>
