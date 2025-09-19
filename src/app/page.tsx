@@ -19,7 +19,7 @@ const page = () => {
       <ElectricVehicleServices />
       <Newsletter />
       <About />
-      <Blogpage  />
+      <Blogpage limit={3} showHeader={false} />
       <PartnerSection />
       <Contact />
     </>

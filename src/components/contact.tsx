@@ -68,17 +68,14 @@ const ContactPage = () => {
 
     try {
       const payload = {
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim(),
+        first_name: formData.firstName.trim(),
+        last_name: formData.lastName.trim(),
         email: formData.email.trim(),
-        phone: cleanPhone,
+        phone_number: cleanPhone,
         message: formData.message.trim(),
       };
 
-      console.log(
-        "Sending contact form data:",
-        JSON.stringify(payload, null, 2)
-      );
+      
 
       const response = await contactApi.submitContactForm(payload);
       console.log("Form submission successful. Response:", response);

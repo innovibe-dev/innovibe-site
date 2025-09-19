@@ -24,7 +24,9 @@ const AppProviders = ({ children }: ChildrenType) => {
       }
     }
 
-import('preline/preline')
+import('preline/preline').catch(() => {
+      // Preline failed to load, ignore silently
+    })
 
     const observer = new MutationObserver(handleMutations)
     observer.observe(splashElement, { childList: true, subtree: true })

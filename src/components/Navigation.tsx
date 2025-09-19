@@ -40,15 +40,15 @@ const Navigation = () => {
       >
         <div className="container">
           <div className="flex lg:flex-nowrap flex-wrap items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={logo}
-                alt="logo"
-                className="h-[65px] w-[170px] "
-            
-                sizes="800vw"
-              />
-            </Link>
+          <Link href="/">
+  <Image
+    src={logo}
+    alt="logo"
+    className="w-full max-w-[170px] h-[65px]"
+    priority
+  />
+</Link>
+
             <div className="lg:hidden flex items-center ms-auto px-2.5">
               <button
                 onClick={toggleMenu}
