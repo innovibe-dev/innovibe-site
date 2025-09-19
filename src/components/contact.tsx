@@ -29,7 +29,6 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Form submission started with data:", formData);
 
     // Basic validation
     if (
@@ -63,7 +62,6 @@ const ContactPage = () => {
       return;
     }
 
-    console.log("Form validation passed. Submitting form...");
     setIsSubmitting(true);
 
     try {
@@ -78,12 +76,11 @@ const ContactPage = () => {
       
 
       const response = await contactApi.submitContactForm(payload);
-      console.log("Form submission successful. Response:", response);
+      
 
       if (response.status) {
         const successMsg =
           "Form submitted successfully. Thank you for your message!";
-        console.log(successMsg);
         toast.success(successMsg);
 
         // Reset form
@@ -94,8 +91,6 @@ const ContactPage = () => {
           phone: "",
           message: "",
         });
-
-        console.log("Form has been reset");
       } else {
         toast.error(
           response.message || "Failed to send message. Please try again."

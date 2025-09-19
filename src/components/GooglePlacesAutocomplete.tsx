@@ -50,7 +50,7 @@ export default function GooglePlacesAutocomplete({
 
     const autocomplete = new window.google.maps.places.Autocomplete(
       inputRef.current,
-      { types: ["geocode"] }
+      { types: ["address"] }
     );
 
     // ⚡ Add this to get full address components
