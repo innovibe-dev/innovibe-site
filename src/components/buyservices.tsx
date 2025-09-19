@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle, Link, Settings, Users, Zap } from "lucide-react";
+import { CheckCircle, Settings, Users, Zap } from "lucide-react";
 
 const BuyEVServices = () => {
   return (

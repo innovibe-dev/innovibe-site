@@ -102,6 +102,11 @@ const BlogPage: React.FC<BlogPageProps> = ({ limit, showHeader = true }) => {
               <Calendar size={14} />
               <span>{formatDate(article.created_at)}</span>
             </div>
+            {article.category?.name && (
+              <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                {article.category.name}
+              </span>
+            )}
           </div>
 
           <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2 line-clamp-2">

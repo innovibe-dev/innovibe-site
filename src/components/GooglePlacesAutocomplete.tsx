@@ -34,7 +34,7 @@ export default function GooglePlacesAutocomplete({
   const [value, setValue] = useState(defaultValue || "");
 
   useEffect(() => {
-    if (!window.google) {
+    if (!(window as any).google) {
       const script = document.createElement("script");
       script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
       script.async = true;
@@ -46,15 +46,19 @@ export default function GooglePlacesAutocomplete({
   }, []);
 
   const initAutocomplete = () => {
-    if (!inputRef.current || !window.google) return;
+    if (!inputRef.current || !(window as any).google) return;
 
-    const autocomplete = new window.google.maps.places.Autocomplete(
+    const autocomplete = new (window as any).google.maps.places.Autocomplete(
       inputRef.current,
       { types: ["address"] }
     );
 
     // ⚡ Add this to get full address components
-    autocomplete.setFields(["address_components", "geometry", "formatted_address"]);
+    autocomplete.setFields([
+      "address_components",
+      "geometry",
+      "formatted_address",
+    ]);
 
     autocomplete.addListener("place_changed", () => {
       const place = autocomplete.getPlace();
@@ -70,10 +74,11 @@ export default function GooglePlacesAutocomplete({
         longitude: place.geometry.location?.lng(),
       };
 
-      place.address_components?.forEach((comp) => {
+      place.address_components?.forEach((comp: any) => {
         const types = comp.types;
         if (types.includes("locality")) address.city = comp.long_name;
-        if (types.includes("administrative_area_level_1")) address.state = comp.long_name;
+        if (types.includes("administrative_area_level_1"))
+          address.state = comp.long_name;
         if (types.includes("country")) address.country = comp.long_name;
         if (types.includes("postal_code")) address.zip = comp.long_name;
       });

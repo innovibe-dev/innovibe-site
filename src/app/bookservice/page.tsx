@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import GooglePlacesAutocomplete from "@/components/GooglePlacesAutocomplete";
 
 export default function BookingForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",

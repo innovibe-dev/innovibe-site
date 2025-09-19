@@ -159,10 +159,7 @@ export default function BlogDetailPage() {
                   <Calendar size={14} className="mr-1" />
                   <span>{formatDate(blog.date)}</span>
                 </div>
-                <div className="flex items-center">
-                  <User size={14} className="mr-1" />
-                  <span>{blog.author}</span>
-                </div>
+                
               </div>
 
               {/* Title */}

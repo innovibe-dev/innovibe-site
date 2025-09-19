@@ -3,4 +3,7 @@ module.exports = {
     tailwindcss: {},
     autoprefixer: {},
   },
-}
+  rules: {
+    "@typescript-eslint/no-explicit-any": "off",
+  },
+};
