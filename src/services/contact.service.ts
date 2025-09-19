@@ -21,14 +21,12 @@ export const contactApi = {
   // ✅ Submit contact form
   submitContactForm: async (formData: ContactForm): Promise<ApiResponse> => {
     try {
-      console.log('Sending contact form data:', JSON.stringify(formData, null, 2));
       
       const response: AxiosResponse<ApiResponse> = await api.post(
         "/contactus",
         formData
       );
-      
-      console.log('Contact form submission successful. Response:', response.data);
+
       return response.data;
       
     } catch (error: any) {

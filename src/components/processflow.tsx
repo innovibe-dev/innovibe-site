@@ -30,7 +30,6 @@ const ProcessFlow = () => {
   ];
 
   const handleStepClick = (stepId: number) => {
-    console.log(`Step ${stepId} clicked`);
     // Add your click handler logic here
   };
 
