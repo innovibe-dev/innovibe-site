@@ -71,7 +71,7 @@ const Aboutpage = () => {
             </div>
 
             {/* Right Side - Image */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-start mt-[-200px]">
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-start mt-[-200px] about-img">
               <Image
                 src={iphone}
                 className="h-[600px] rounded-xl"
